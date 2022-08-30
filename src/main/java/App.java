@@ -7,6 +7,14 @@ public class App {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
-        System.out.println(bean.getMessage());
+        HelloWorld bean2 =
+                (HelloWorld) applicationContext.getBean("helloworld");
+        System.out.println("Переменные bean & bean2 ссылаются на один и тот же объект? " +
+                (bean == bean2));
+        Cat cat = (Cat) applicationContext.getBean("cat");
+        Cat cat2 = (Cat) applicationContext.getBean("cat");
+        System.out.println("Переменные cat & cat2 ссылаются на один и тот же объект? " +
+                (cat == cat2));
+
     }
 }
